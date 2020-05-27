@@ -14,7 +14,7 @@ public class ProductDao {
 
     public Product selectProductById(int productId) {
 
-        Product p = new Product("2005","아이폰11",500000,"iphone");
+        Product p = new Product(productId + "","아이폰11",500000,"iphone");
 
         return p;
     }

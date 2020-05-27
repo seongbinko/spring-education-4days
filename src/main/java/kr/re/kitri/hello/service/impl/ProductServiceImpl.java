@@ -19,6 +19,6 @@ public class ProductServiceImpl implements ProductService {
 
     @Override
     public Product viewProductDetail(int productId) {
-        return null;
+        return productDao.selectProductById(productId);
     }
 }
