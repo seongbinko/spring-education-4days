@@ -1,5 +1,6 @@
 package kr.re.kitri.hello.aspect;
 
+import kr.re.kitri.hello.annotation.TokenRequired;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
@@ -15,6 +16,12 @@ import org.springframework.stereotype.Component;
 public class KitriAspect {
 
     private static Logger logger = LoggerFactory.getLogger(KitriAspect.class);
+
+    // 음.. 특정한 메소드에대해서 보안을 걸어야할 때;
+    @Before("@annotation(tokenRequired)")
+    public void test(TokenRequired tokenRequired) {
+        logger.debug("토큰이 적용되어야 합니다........");
+    }
 
     @Before("execution(* kr.re.kitri.hello.service.*Service.*(..))")
     public void logging(JoinPoint joinPoint) {
